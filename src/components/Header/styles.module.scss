@@ -1,0 +1,48 @@
+.headerContainer {
+  height: 5rem;
+
+  display: flex;
+  align-items: center;
+
+  padding: 2rem 4rem;
+
+  @media (max-width: 720px) {
+    padding: 1rem 2rem;
+  }
+
+  box-shadow: 0 0 4px rgba($color: #000, $alpha: 0.2);
+
+  img {
+    height: 3rem;
+    margin-right: 1rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+
+    @media (max-width: 720px) {
+      font-size: 1.2rem;
+    }
+    
+    a {
+      color: var(--text);
+      text-decoration: none;
+    }
+  }
+}
+
+.headerMenu {
+  margin-left: auto;
+
+  ul {
+    list-style: none;
+
+    li {
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

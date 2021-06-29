@@ -1,0 +1,11 @@
+.avatharContainer {
+  display: flex;
+  align-items: center;
+
+  > div {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    margin-left: 8px;
+    color: var(--text-highlight);
+  }
+}

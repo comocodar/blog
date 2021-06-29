@@ -1,0 +1,51 @@
+.postPreviewContainer {
+  display: flex;
+  flex-direction: column;
+  
+  border-radius: 4px;
+
+  box-shadow: 0 0 4px rgba($color: #000, $alpha: 0.2);
+
+  img {
+    border-radius: 4px 4px 0 0;
+  }
+}
+
+.postDescription {
+  padding: 0 16px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  
+  p {
+    height: 4.5rem;
+    line-height: 1.5em;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.postTitle {
+  font-size: 1.5rem;
+  flex: 1;
+
+  a {
+    color: var(--text);
+    text-decoration: none;
+  }
+}
+
+.postDetails {
+  display: flex;
+  align-items: center;
+
+  margin: 0.5rem 0;
+  gap: 8px;
+}
+
+.dotSeparator {
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gray-200);
+}

@@ -1,0 +1,73 @@
+.heroCard {
+  display: flex;
+  height: 20rem;
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+    height: auto;
+  }
+
+  border-radius: 4px;
+
+  box-shadow: 0 0 4px rgba($color: #000, $alpha: 0.2);
+
+  img {
+    border-radius: 4px 0 0 4px;
+  }
+}
+
+.postDescription {
+  flex: 1;
+  padding: 16px;
+  
+  p {
+    line-height: 1.5em;
+  }
+
+  @media (max-width: 720px) {
+    padding: 0 16px 16px;
+
+    p {
+      height: 4.5rem;
+      overflow-y: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.postDetails {
+  display: flex;
+  align-items: center;
+
+  margin: 4px 0;
+  gap: 8px;
+
+  @media (max-width: 720px) {
+    margin: 0.5rem 0;
+
+    img {
+      height: 24px;
+    }
+  }
+}
+
+.dotSeparator {
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gray-200);
+}
+
+.postTitle {
+  font-size: 2.125rem;
+
+  @media (max-width: 720px) {
+    font-size: 1.5rem;
+  }
+
+  a {
+    color: var(--text);
+    text-decoration: none;
+    line-height: 1.5em;
+  }
+}

@@ -1,0 +1,24 @@
+.postHeaderContainer {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.postDetails {
+  display: flex;
+  align-items: center;
+
+  margin: 8px 0 16px;
+  gap: 8px;
+}
+
+.dotSeparator {
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gray-200);
+}
