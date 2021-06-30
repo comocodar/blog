@@ -65,6 +65,7 @@
     font-size: 1.25rem;
     line-height: 1.5em;
     font-style: italic;
+    word-break: break-word;
 
     &::before {
       content: '';
