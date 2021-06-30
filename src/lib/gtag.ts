@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    gtag:any;
+  }
+}
+
 export const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
