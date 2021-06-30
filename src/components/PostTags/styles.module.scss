@@ -1,0 +1,19 @@
+.tagsContainer {
+  margin-top: 1rem;
+
+  span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--gray-200);
+
+    height: 2rem;
+    padding: 0 1rem;
+    border-radius: 1em;
+    margin-right: 0.5rem;
+
+    font: 400 1rem Roboto, sans-serif;
+    color: var(--gray-800);
+  }
+}

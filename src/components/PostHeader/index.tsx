@@ -10,12 +10,14 @@ import styles from './styles.module.scss';
 type Props = {
   title: string;
   subtitle: string;
+  coverImage: string;
+  slug: string;
   date: string;
   author: AuthorType;
   views: number;
 }
 
-export function PostHeader({ title, subtitle, date, author, views }: Props) {
+export function PostHeader({ title, subtitle, coverImage, slug, date, author, views }: Props) {
   return (
     <>
       <header className={styles.postHeaderContainer}>

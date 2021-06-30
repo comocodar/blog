@@ -6,15 +6,17 @@ import styles from './styles.module.scss';
 type Props = {
   title: string
   src: string
+  width?: number;
+  height?: number;
   slug?: string
 }
 
-export function CoverImage({ title, src, slug }: Props) {
+export function CoverImage({ title, src, width = 570, height = 320, slug }: Props) {
   const image = (
     <Image
       src={src}
-      width={570}
-      height={320}
+      width={width}
+      height={height}
       objectFit="cover"
       alt={`Cover Image for ${title}`}
     />

@@ -23,7 +23,10 @@ function getSubtitleFromContentEncoded(content: string) {
 
   const subtitle = content.substring(indexOfH4TagOpen + 4, indexOfH4TagClose);
 
-  return subtitle;
+  return {
+    subtitle,
+    contentWithoutSubtitle: content.replace(`<h4>${subtitle}</h4>`, ''),
+  };
 }
 
 function getCoverSrcFromContentEncoded(content: string) {
@@ -35,12 +38,17 @@ function getCoverSrcFromContentEncoded(content: string) {
   const indexOfCoverImagTagOpen = substringBeforeAltText.lastIndexOf('<img');
   const indexOfCoverImagTagClose = substringAfterAltText.indexOf('/>') + substringBeforeAltText.length;
 
-  const coverImage = content.substring(indexOfCoverImagTagOpen, indexOfCoverImagTagClose);
+  const coverImage = content.substring(indexOfCoverImagTagOpen, indexOfCoverImagTagClose + 2);
 
   const regex = /<img.*?src="(.*?)"/;
-  const src = regex.exec(coverImage)[1];
+  const coverSrc = regex.exec(coverImage)[1];
 
-  return src;
+  console.log('coverImage:', coverImage);
+
+  return {
+    coverSrc,
+    contentWithoutCoverImg: content.replace(coverImage, ''),
+  };
 }
 
 async function getFeed() {
@@ -52,17 +60,30 @@ async function getFeed() {
 
   const feedWithSlug = {
     ...feedInfo,
-    posts: items.map(post => ({
-      ...post,
-      slug: convertTitleToSlug(post.title),
-      subtitle: getSubtitleFromContentEncoded(post['content:encoded']),
-      coverImage: getCoverSrcFromContentEncoded(post['content:encoded']),
-      author: {
-        name: post.creator,
-        picture: '/assets/blog/authors/comocodar.png',
-      },
-      excerpt: post['content:encodedSnippet'].split('\n')[0],
-    }))
+    posts: items.map(post => {
+      const {
+        subtitle,
+        contentWithoutSubtitle,
+      } = getSubtitleFromContentEncoded(post['content:encoded']);
+
+      const {
+        coverSrc,
+        contentWithoutCoverImg,
+      } = getCoverSrcFromContentEncoded(contentWithoutSubtitle);
+
+      return {
+        ...post,
+        "content:encoded": contentWithoutCoverImg,
+        slug: convertTitleToSlug(post.title),
+        subtitle,
+        coverImage: coverSrc,
+        author: {
+          name: post.creator,
+          picture: '/assets/blog/authors/comocodar.png',
+        },
+        excerpt: post['content:encodedSnippet'].split('\n')[0],
+      };
+    })
   };
 
   return feedWithSlug;

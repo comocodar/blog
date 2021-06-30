@@ -4,7 +4,7 @@ type Props = {
   tags: string[];
 }
 
-export function tags({ tags }: Props) {
+export function PostTags({ tags }: Props) {
   return (
     <div className={styles.tagsContainer}>
       {tags.map(tag => (

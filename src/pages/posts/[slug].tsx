@@ -5,6 +5,7 @@ import { Layout } from '@/components/Layout';
 import { Loading } from '@/components/Loading';
 import { PostHeader } from '@/components/PostHeader';
 import { PostBody } from '@/components/PostBody';
+import { PostTags } from '@/components/PostTags';
 
 import Head from 'next/head'
 
@@ -47,11 +48,14 @@ const Post = ({ post, morePosts, preview }: Props) => {
             <PostHeader
               title={post.title}
               subtitle={post.subtitle}
+              coverImage={post.coverImage}
+              slug={post.slug}
               date={post.isoDate}
               author={post.author}
               views={data?.total}
             />
             <PostBody content={post['content:encoded']} />
+            <PostTags tags={post.categories} />
           </article>
           <aside />
         </section>

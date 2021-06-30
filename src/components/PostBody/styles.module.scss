@@ -18,6 +18,15 @@
     color: #fff;
   }
 
+  iframe {
+    width: 100%;
+    height: calc(45rem * 0.5625);
+    
+    @media (max-width: 720px) {
+      height: 14rem;
+    }
+  }
+
   figure {
     text-align: center;
 
@@ -39,6 +48,33 @@
         font-weight: 400;
         color: var(--gray-500);
       }
+    }
+  }
+
+  blockquote {
+    position: relative;
+    background: var(--gray-500);
+    border-radius: 4px;
+    padding: 0.5rem 1rem 0.5rem 1.5rem;
+    
+    font-family: Roboto, sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.5em;
+    font-style: italic;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 4px;
+      height: 100%;
+
+      border-radius: 4px 0 0 4px;
+
+      background: var(--gray-800);
     }
   }
 }
