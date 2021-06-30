@@ -30,6 +30,10 @@
   figure {
     text-align: center;
 
+    & + figure {
+      margin-top: 2rem;
+    }
+
     img {
       max-width: 100%;
     }

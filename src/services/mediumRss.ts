@@ -43,8 +43,6 @@ function getCoverSrcFromContentEncoded(content: string) {
   const regex = /<img.*?src="(.*?)"/;
   const coverSrc = regex.exec(coverImage)[1];
 
-  console.log('coverImage:', coverImage);
-
   return {
     coverSrc,
     contentWithoutCoverImg: content.replace(coverImage, ''),
