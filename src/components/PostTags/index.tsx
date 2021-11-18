@@ -8,7 +8,7 @@ export function PostTags({ tags }: Props) {
   return (
     <div className={styles.tagsContainer}>
       {tags.map(tag => (
-        <span>{tag}</span>
+        <span key={tag}>{tag}</span>
       ))}
     </div>
   );
